@@ -9,17 +9,20 @@ class LinkedList{
     head = null;
 }
 
+//insert a value to the front of an ll
 function insert(ll, newnode){
     newnode.nextval = ll.head;
     ll.head = newnode;
 }
 
+//extract the head value of a ll and return it
 function extract(ll){
     let r = ll.head.value;
     ll.head = ll.head.nextval;
     return r;
 }
 
+//converts ll to array
 function ll_to_array(ll){
     array = new Array()
     node = ll.head;
@@ -30,6 +33,7 @@ function ll_to_array(ll){
     return array;
 }
 
+//converts an array to ll
 function array_to_ll(arr){
     ll = new LinkedList()
     for(let i = arr.length ; i > -1 ; --i){
@@ -38,6 +42,7 @@ function array_to_ll(arr){
     return ll
 }
 
+//sum of the elements of a ll
 function ll_sum(head, sum = 0){
     sum += head.value;
     if(head.nextval === null){
@@ -45,6 +50,8 @@ function ll_sum(head, sum = 0){
     }
     return ll_sum(head.nextval, sum)
 }
+
+//Demo
 
 let a = new LinkedList();
 
