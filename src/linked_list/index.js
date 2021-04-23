@@ -1,7 +1,7 @@
 class Node{
-    constructor(value, nextval = null){
+    constructor(value){
         this.value = value;
-        this.nextval = nextval;
+        this.nextval = null;
     }
 }
 
@@ -9,7 +9,7 @@ class LinkedList{
     head = null;
 }
 
-//insert a value to the front of an ll
+//insert a value to the front of a ll
 function insert(ll, newnode){
     newnode.nextval = ll.head;
     ll.head = newnode;
@@ -24,8 +24,8 @@ function extract(ll){
 
 //converts ll to array
 function ll_to_array(ll){
-    array = new Array()
-    node = ll.head;
+    let array = new Array();
+    let node = ll.head;
     while(node?.value){
         array.push(node.value);
         node = node.nextval;
@@ -35,7 +35,7 @@ function ll_to_array(ll){
 
 //converts an array to ll
 function array_to_ll(arr){
-    ll = new LinkedList()
+    let ll = new LinkedList()
     for(let i = arr.length ; i > -1 ; --i){
         insert(ll, new Node(arr[i]))
     }
