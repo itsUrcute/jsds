@@ -14,7 +14,8 @@ class LinkedList{
 }
 
 //insert a value to the front of a ll
-function insert(ll: LinkedList, newnode: LLNode): void{
+function insert(ll: LinkedList, value: number): void{
+    let newnode = new LLNode(value);
     newnode.nextval = ll.head;
     ll.head = newnode;
 }
@@ -33,7 +34,7 @@ function extract(ll: LinkedList): number | null{
 function ll_to_array(ll: LinkedList): number[]{
     let arr: number[] = new Array();
     let node = ll.head;
-    while(node?.value){
+    while(node?.value != null){
         arr.push(node.value);
         node = node.nextval;
     }
@@ -42,11 +43,11 @@ function ll_to_array(ll: LinkedList): number[]{
 
 //converts an array to ll
 function array_to_ll(arr: number[]): LinkedList{
-    let ll: LinkedList = new LinkedList()
+    let ll: LinkedList = new LinkedList();
     for(let i = arr.length ; i > -1 ; --i){
-        insert(ll, new LLNode(arr[i]))
+        insert(ll, arr[i]);
     }
-    return ll
+    return ll;
 }
 
 //sum of the elements of a ll
@@ -65,14 +66,14 @@ function ll_sum(head: nodeornull, sum = 0): number | null{
 
 let a = new LinkedList();
 
-insert(a, new LLNode(6))
-insert(a, new LLNode(7))
-insert(a, new LLNode(8))
-insert(a, new LLNode(5))
-insert(a, new LLNode(7))
-console.log(ll_to_array(a))
-console.log(extract(a))
-console.log(ll_to_array(a))
-console.log(ll_sum(a.head))
-let b = array_to_ll([1,2,3,4,5])
-console.log(ll_to_array(b))
+insert(a, 6);
+insert(a, 7);
+insert(a, 8);
+insert(a, 5);
+insert(a, 7);
+console.log(ll_to_array(a));
+console.log(extract(a));
+console.log(ll_to_array(a));
+console.log(ll_sum(a.head));
+let b = array_to_ll([1,2,3,4,5]);
+console.log(ll_to_array(b));
